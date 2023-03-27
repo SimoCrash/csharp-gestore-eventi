@@ -22,7 +22,7 @@ namespace GestoreEventi
 
         public void setTitolo(string titolo)
         {
-            this.titolo = titolo != "" ? titolo : throw new Exception();
+            this.titolo = titolo != "" ? titolo : throw new Exception("Immetti un campo ");
         }
 
         public DateTime getData()
