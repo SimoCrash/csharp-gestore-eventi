@@ -1,4 +1,5 @@
 ﻿using GestoreEventi;
 
-var evento = new Evento("BigBeng", 2024 - 05 - 12, 700);
-Console.WriteLine(evento.titolo);
+Console.WriteLine(new Evento("BigBeng", DateTime.Parse("Jan 1, 2009"), 700, 0));
+
+;

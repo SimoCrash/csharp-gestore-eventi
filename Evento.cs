@@ -13,7 +13,7 @@ namespace GestoreEventi
         string titolo;
         DateTime data;
         int capienzaMassimaEvento;
-        int postiPrenotati;
+        int postiPrenotati = 0;
 
         public string getTitolo()
         {
@@ -41,8 +41,12 @@ namespace GestoreEventi
             else throw new Exception();
         }
 
-        public int getPostiPrenotati() => this.postiPrenotati = 0;
+        public int getPostiPrenotati() => this.postiPrenotati;
 
+        internal object? getData(string v)
+        {
+            throw new NotImplementedException();
+        }
 
         public Evento(string titolo, DateTime data, int capienzaMassimaEvento, int postiPrenotati)
         {
