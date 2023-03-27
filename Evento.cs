@@ -41,11 +41,39 @@ namespace GestoreEventi
             else throw new Exception();
         }
 
-        public int getPostiPrenotati() => this.postiPrenotati;
-
-        internal object? getData(string v)
+        public int getPostiPrenotati()
         {
-            throw new NotImplementedException();
+            int PrenotaPosti(int postiPrenotati)
+            {
+                if (data < DateTime.Now)
+                {
+                    throw new Exception("Data passata");
+                }
+                else if (postiPrenotati >= this.capienzaMassimaEvento)
+                {
+                    throw new Exception("Posti Terminati");
+                }
+                else
+                {
+                    return postiPrenotati += this.postiPrenotati;
+                }
+            }
+            int DisdiciPosti(int postiPrenotati)
+            {
+                if (data < DateTime.Now)
+                {
+                    throw new Exception("Data passata");
+                }
+                else if (postiPrenotati >= this.capienzaMassimaEvento || postiPrenotati >= this.postiPrenotati)
+                {
+                    throw new Exception("Posti terminati o maggiori rispetto a quelli prenotati");
+                }
+                else
+                {
+                    return postiPrenotati = this.postiPrenotati - postiPrenotati;
+                }
+            }
+            return this.postiPrenotati;
         }
 
         public Evento(string titolo, DateTime data, int capienzaMassimaEvento, int postiPrenotati)
@@ -56,21 +84,7 @@ namespace GestoreEventi
             this.postiPrenotati = postiPrenotati;
         }
 
-        public int PrenotaPosti(int postiPrenotati)
-        {
-            if (data < DateTime.Now)
-            {
-                throw new Exception("Data passata");
-            }
-            else if (postiPrenotati >= this.capienzaMassimaEvento)
-            {
-                throw new Exception("Posti Terminati");
-            }
-            else
-            {
-                return postiPrenotati += this.postiPrenotati;
-            }
-        }
+        
     }
 }
 
