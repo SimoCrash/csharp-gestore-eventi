@@ -55,6 +55,22 @@ namespace GestoreEventi
             this.capienzaMassimaEvento = capienzaMassimaEvento;
             this.postiPrenotati = postiPrenotati;
         }
+
+        public int PrenotaPosti(int postiPrenotati)
+        {
+            if (data < DateTime.Now)
+            {
+                throw new Exception("Data passata");
+            }
+            else if (postiPrenotati >= this.capienzaMassimaEvento)
+            {
+                throw new Exception("Posti Terminati");
+            }
+            else
+            {
+                return postiPrenotati += this.postiPrenotati;
+            }
+        }
     }
 }
 
